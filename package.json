@@ -1,0 +1,16 @@
+{
+    "author": "Gary Teh <garyjob@gmail.com>",
+    "name": "phantomjs_server"
+  , "main": "./server.js"
+  , "version": "0.0.1"
+  , "private": true
+  , "engines": {
+    "node": "=0.8.8"
+  }  
+  , "dependencies": {
+      "request" : ""
+  }
+  , "scripts": {
+    "test": "jasmine-node --coffee test/"
+  }  
+}

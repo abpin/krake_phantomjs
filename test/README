@@ -1,0 +1,8 @@
+# Test scripts
+
+## Requirements
+- NodeJS v0.8.8
+      - Dependencies globally installed
+          - jasmine-node
+          - coffee-script
+
