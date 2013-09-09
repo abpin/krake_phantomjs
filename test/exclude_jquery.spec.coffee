@@ -1,23 +1,16 @@
 http = require 'http'
+KSON = require 'kson'
+jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "testing to make sure phantomjs server parses JSON successfully", ()->
-  it "should respond with Krake Column length", (done)->
+describe "testing Krake definition with jQuery excluded", ()->
+  it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
-    post_data = JSON.stringify(
-      auth_token : 'RELEASETHEKRAKEN'
-      description : 'Scraping of Amazon.com'
-      origin_url : 'http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=iphone'
-      rdbParams :
-        database: 'test'
-        tableName: 'combine_shopping'
-        username: 'explorya'
-        password: 'Explore123!'
-        host:
-          host: '127.0.0.1'
-          port: 3306    
+    post_data = KSON.stringify(
+      exclude_jquery : true,
+      origin_url : 'http://sg.yahoo.com/?p=us'
       columns: [{
           col_name: 'product_name'
           dom_query: '.lrg.bold'
@@ -55,8 +48,10 @@ describe "testing to make sure phantomjs server parses JSON successfully", ()->
 
     post_req = http.request post_options, (res)=>
       res.setEncoding('utf8');
-      res.on 'data', (chunk)=>
-        expect(chunk).toEqual("4")
+      res.on 'data', (raw_data)=>
+        response_obj = KSON.parse raw_data
+        expect(response_obj.status).toEqual "success"
+        expect(typeof response_obj.message).toBe "object"
         done() 
 
 

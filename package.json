@@ -9,6 +9,8 @@
   }  
   , "dependencies": {
       "request" : ""
+    , "kson" : "https://github.com/KrakeIO/kson/tarball/master"
+    , "express": "2.5.7"
   }
   , "scripts": {
     "test": "jasmine-node --coffee test/"

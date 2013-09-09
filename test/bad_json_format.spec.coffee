@@ -1,6 +1,7 @@
 http = require 'http'
+KSON = require 'kson'
 
-describe "testing to make sure phantomjs server catches illed formed JSON correctly", ()->
+describe "testing badly formed JSON", ()->
   it "should respond with error message", (done)->
     post_domain = 'localhost'
     post_port = 9701
@@ -21,8 +22,10 @@ describe "testing to make sure phantomjs server catches illed formed JSON correc
 
     post_req = http.request post_options, (res)=>
       res.setEncoding('utf8');
-      res.on 'data', (chunk)=>
-        expect(chunk).toEqual("ERROR")
+      res.on 'data', (raw_data)=>
+        response_obj = KSON.parse raw_data
+        expect(response_obj.status).toEqual "error"
+        expect(response_obj.message).toEqual "cannot render Krake query object"
         done() 
 
 
