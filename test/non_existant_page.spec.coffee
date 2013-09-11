@@ -50,7 +50,7 @@ describe "testing against non-existant url", ()->
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
         expect(response_obj.status).toEqual "error"
-        expect(response_obj.message).toBe "page failed to finish loading"
+        expect(response_obj.message).toBe "page opening failed"
         done() 
 
 

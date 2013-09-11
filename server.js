@@ -2,6 +2,25 @@
 
 // Creation of web server
 var server = require('webserver').create();
+var parseUri = require('./3p/parse_uri');
+var KSON = require('./node_modules/kson/lib/kson');
+
+
+// @Description : checks the settings for current domain and determine if should set header
+// @param : page_url:String
+// @return : settings:Object
+//    setHeader
+//    setCookie
+var checkDomain = function(page_url) {
+  var settings = {
+    set_header : true,
+    set_cookie : true
+  }
+  
+  var domain_info = parseUri(page_url);
+  domain_info.host.match(/facebook.com/) && (settings.set_header = false);
+  return settings;
+}
 
 
 // @Description : Given a page object sets the header for this object
@@ -31,9 +50,11 @@ var setDefaultHeader = function(page) {
 var openPage = function(page, krake_query_obj, callback) {
   console.log("[PHANTOM_SERVER] Opening page");
 
+  var results = {};
+  
   // @extracts the DOM elements from the page  
   var extractDomElements = function() {
-    page.render('facebook-phantom.pdf');
+    //page.render('facebook-phantom.pdf');
   	console.log('[PHANTOM_SERVER] extracting DOM elements');    
 
     // @Description : extracts value from page
@@ -47,7 +68,7 @@ var openPage = function(page, krake_query_obj, callback) {
     //        next_page:String — value to next page href
     //        logs:Array
     //          log_mesage1:String, ...
-    var results = page.evaluate(function(krake_query_obj) {
+    results = page.evaluate(function(krake_query_obj) {
       
       // Gets the value of a DOM attribute
        var extractAttributeFromDom = function(dom_obj, required_attribute) {
@@ -154,14 +175,22 @@ var openPage = function(page, krake_query_obj, callback) {
         while(xpath_np = xPathResults.iterateNext()) {
            results.next_page = xpath_np.getAttribute('href');
         }        
-        
-      } else if(krake_query_obj.next_page && krake_query_obj.next_page.dom_query) {
+      
+      // when jQuery selector is to be used             
+      } else if( (typeof jQuery == "function") && krake_query_obj.next_page && krake_query_obj.next_page.dom_query) {
         results.logs.push("[PHANTOM_SERVER] extracting next page using jQuery" + 
             "\r\n\t\tdom_query : " + krake_query_obj.next_page.dom_query);
         var jquery_np = jQuery(krake_query_obj.next_page.dom_query);
-        jquery_np.length && (results.next_page = jQuery(jquery_np[0]).attribute('href'));
+        jquery_np.length && ( results.next_page = extractAttributeFromDom(jquery_np[0], 'href') );
         
-      } 
+      // when jQuery has been explicitly excluded
+      } else if(  (typeof jQuery != "function") && krake_query_obj.next_page && krake_query_obj.next_page.dom_query) {
+        results.logs.push("[PHANTOM_SERVER] extracting next page using jQuery" + 
+            "\r\n\t\tdom_query : " + krake_query_obj.next_page.dom_query);
+        var jquery_np = document.querySelectorAll(krake_query_obj.next_page.dom_query);
+        jquery_np.length && ( results.next_page = extractAttributeFromDom(jquery_np[0], 'href' ) );
+      
+      }      
 
       return results;
         
@@ -190,6 +219,7 @@ var openPage = function(page, krake_query_obj, callback) {
   
   
   // @Description : the process that handles the finished loading of pages
+  /*
   page.onLoadFinished = function(status) {
     // When opening page failed
   	if(status !== 'success') {
@@ -198,24 +228,8 @@ var openPage = function(page, krake_query_obj, callback) {
       page.close();
 
     // when opening page was successful  		
-  	} else {  		
-  	  
-  	  // when excludes the jquery library 
-  	  if(krake_query_obj.exclude_jquery) {
-  	    console.log('[PHANTOM_SERVER] jQuery excluded');
-        waitUp();
-
-  	  // when includes the jquery library           	      
-  	  } else {
-  	    console.log('[PHANTOM_SERVER] including jQuery');
-  	    page.includeJs("https://api.krake.io/3p/js/jquery.js", function() {
-  	      console.log('[PHANTOM_SERVER] jQuery included');
-  	      waitUp();
-	      });  	    
-        
-  	  }
-  	}
-  }
+  	} 
+  }*/
   
   // @Description : throws up the error
   page.onError = function (msg, trace) {
@@ -233,7 +247,23 @@ var openPage = function(page, krake_query_obj, callback) {
   	  console.log('[PHANTOM_SERVER] failed to open page.');
       callback('error', 'page opening failed');
       page.close();
-  	} 
+  	} else {  		
+  	  
+  	  // when excludes the jquery library 
+  	  if(krake_query_obj.exclude_jquery) {
+  	    console.log('[PHANTOM_SERVER] jQuery excluded');
+        waitUp();
+
+  	  // when includes the jquery library           	      
+  	  } else {
+  	    console.log('[PHANTOM_SERVER] including jQuery');
+  	    page.includeJs("https://api.krake.io/3p/js/jquery.js", function() {
+  	      console.log('[PHANTOM_SERVER] jQuery included');
+  	      waitUp();
+	      });  	    
+        
+  	  }
+  	}  	
   	
   });
   
@@ -264,8 +294,6 @@ var setCookies = function(page, krake_query_obj) {
   console.log("[PHANTOM_SERVER] Setting Cookies");
   if(krake_query_obj.cookies) {
     for( x = 0; x < krake_query_obj.cookies.length; x++) {
-      console.log('Current cookie');
-      console.log(JSON.stringify(krake_query_obj.cookies[x]));
       add_results = phantom.addCookie({
         name : krake_query_obj.cookies[x].name, 
         value : krake_query_obj.cookies[x].value, 
@@ -307,8 +335,9 @@ var processPage = function(krake_query_obj, callback) {
   } else {
     console.log('[PHANTOM_SERVER] Processing page \r\n\t\tURL:' + krake_query_obj.origin_url);
     var page = require('webpage').create();
-    setCookies(page, krake_query_obj); 
-    setDefaultHeader(page);
+    var domain_settings = checkDomain(krake_query_obj.origin_url);
+    domain_settings.set_cookie && setCookies(page, krake_query_obj); 
+    domain_settings.set_header && setDefaultHeader(page);
     openPage(page, krake_query_obj, function(status, results) {
       callback && callback(status, results);
       
@@ -341,7 +370,8 @@ var service = server.listen(9701, function(req, res) {
     }
     
     try {
-      var krake_query_obj = JSON.parse(req.post);
+      req.post = decodeURIComponent(req.post);
+      var krake_query_obj = KSON.parse(req.post);
       processPage(krake_query_obj, function(status, results) {
         response.status = status;
         response.message = results;
@@ -352,7 +382,7 @@ var service = server.listen(9701, function(req, res) {
       
     } catch (e) {
       response.status = 'error';
-      response.message = 'cannot render Krake query object';
+      response.message = 'cannot render Krake query object, ' + e;
       res.write(JSON.stringify(response));
       res.close();      
       

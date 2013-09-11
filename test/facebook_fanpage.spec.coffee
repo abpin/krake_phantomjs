@@ -3,7 +3,7 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test extraction from Facebook using Cookies", ()->
+describe "Facebook fanpage using Cookies", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
@@ -11,12 +11,20 @@ describe "test extraction from Facebook using Cookies", ()->
 
     post_data = KSON.stringify(
       "exclude_jquery" : true
-      "wait" : 10000      
+      "wait" : 5000      
       "origin_url": "https://www.facebook.com/cocacola"
       "columns": [
           {
-              "col_name": "like",
-              "xpath" : '//*[@id="fbTimelineHeadline"]/div[2]/h2/div/div'
+              "col_name": "company name",
+              "xpath" : '//*[@id="fbTimelineHeadline"]/div[2]/h2/span'
+          },      
+          {
+              "col_name": "company description",
+              "xpath" : '//*[@id="pagelet_timeline_summary"]/div/div[1]/div/div/span[2]/div'
+          },
+          {
+              "col_name": "company fans",
+              "xpath" : '//*[@id="fbTimelineHeadline"]/div[2]/h2/div/div'            
           }
       ],
       "cookies": [{
@@ -178,8 +186,7 @@ describe "test extraction from Facebook using Cookies", ()->
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
         expect(typeof response_obj.message.result_rows[0]).toBe "object"
-        response_obj.message.result_rows[0] &&
-            expect(typeof response_obj.message.result_rows[0].name).toBe "string"
+        expect(response_obj.message.result_rows[0]['company name']).toBe "Coca-Cola"
         done() 
 
 

@@ -3,7 +3,7 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "Facebook widget using cookies", ()->
+describe "Facebook singapore clothing stores", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
@@ -11,17 +11,12 @@ describe "Facebook widget using cookies", ()->
 
     post_data = KSON.stringify(
       "exclude_jquery" : true
-      "wait" : 5000
-      "origin_url": "http://www.facebook.com/plugins/fan.php?connections=100&id=40796308305"
+      "wait" : 5000      
+      "origin_url": "https://www.facebook.com/search/105565836144069/places-in/186230924744328/places/intersect"
       "columns": [
           {
-              "col_name": "body",
-              "dom_query" : "body"
-          },
-          {
-            "col_name": "support",
-            "xpath" : '//*[@id="u_0_4"]',
-            "regex_pattern" : /[0-9,]+/ig
+              "col_name": "store name",
+              "dom_query" : '[data-bt*="title"] a'
           }
       ],
       "cookies": [{
@@ -162,7 +157,7 @@ describe "Facebook widget using cookies", ()->
             "session": true,
             "storeId": "0",
             "value": "1361x647"
-        }]
+        }]      
     )
 
     post_options = {
@@ -180,11 +175,11 @@ describe "Facebook widget using cookies", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
+        console.log response_obj
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
         expect(typeof response_obj.message.result_rows[0]).toBe "object"
-        expect(typeof response_obj.message.result_rows[0].support).toBe("string") &&
-          expect(response_obj.message.result_rows[0].support.match(/people/)[0]).toEqual "people"
+        expect(response_obj.message.result_rows[0]['store name']).toBe "Swagger Store"
         done() 
 
 

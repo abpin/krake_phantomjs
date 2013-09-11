@@ -23,7 +23,7 @@ describe "testing badly formed JSON", ()->
     post_req = http.request post_options, (res)=>
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
-        response_obj = KSON.parse raw_data
+        response_obj = JSON.parse raw_data
         expect(response_obj.status).toEqual "error"
         expect(response_obj.message).toEqual "cannot render Krake query object"
         done() 
