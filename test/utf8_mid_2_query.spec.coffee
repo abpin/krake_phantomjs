@@ -129,7 +129,6 @@ describe "Test to ensure extreme long JSON query gets handled properly", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
-        console.log response_obj
         expect(response_obj.status).toEqual "success"
         done() 
 

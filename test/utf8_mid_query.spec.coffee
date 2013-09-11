@@ -30,8 +30,6 @@ describe "Test to ensure extreme long JSON query gets handled properly", ()->
 
     post_data = encodeURIComponent(KSON.stringify(post_data));
     # encoding to UTF8
-    console.log post_data
-    console.log post_data.length
     post_options =
       host: post_domain
       port: post_port
@@ -44,7 +42,6 @@ describe "Test to ensure extreme long JSON query gets handled properly", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
-        console.log response_obj
         expect(response_obj.status).toEqual "success"
         done() 
 

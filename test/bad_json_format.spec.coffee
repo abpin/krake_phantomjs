@@ -25,7 +25,7 @@ describe "testing badly formed JSON", ()->
       res.on 'data', (raw_data)=>
         response_obj = JSON.parse raw_data
         expect(response_obj.status).toEqual "error"
-        expect(response_obj.message).toEqual "cannot render Krake query object"
+        expect(response_obj.message).toEqual "cannot render Krake query object, SyntaxError: KSON.parse"
         done() 
 
 

@@ -10,8 +10,7 @@ describe "Test to ensure UTF8 encoding gets handled properly", ()->
     post_port = 9701
     post_path = '/extract'
     post_data = '全部商品'
-    post_data = encodeURIComponent(KSON.stringify(post_data));    
-    console.log post_data.length
+    post_data = encodeURIComponent(KSON.stringify(post_data))
     post_options =
       host: post_domain
       port: post_port
@@ -24,7 +23,7 @@ describe "Test to ensure UTF8 encoding gets handled properly", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
-        expect(response_obj.status).toEqual "success"
+        expect(response_obj.status).toEqual "error"
         done() 
 
 

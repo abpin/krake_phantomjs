@@ -22,7 +22,6 @@ app.get '/', (req, res)->
     res.send 'cookie header not received'
 
 app.listen 9909
-console.log 'testing web server started on', 9909  
 
 
 

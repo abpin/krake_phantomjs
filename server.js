@@ -196,7 +196,7 @@ var openPage = function(page, krake_query_obj, callback) {
         
     }, krake_query_obj); // eo evaluation
     console.log('[PHANTOM_SERVER] Extraction finished.');    
-    console.log(JSON.stringify(results));
+    console.log(JSON.stringify(results) + '\r\n\r\n');
     callback('success', results);
     page.close();
   }
@@ -301,10 +301,18 @@ var setCookies = function(page, krake_query_obj) {
       });
       
       if(add_results) {
-        console.log('Cookie was added');
+        console.log(
+          '\r\n\t\tCookie was added ' + 
+          '\r\n\t\t\tname : ' + krake_query_obj.cookies[x].name + ' : ' + 
+          '\r\n\t\t\tvalue : ' + krake_query_obj.cookies[x].value + ' : ' + 
+          '\r\n\t\t\tdomain : ' + krake_query_obj.cookies[x].domain );
         
       } else {
-        console.log('Cookie was not added');
+        console.log(
+          '\r\n\t\tCookie was not added' + 
+          '\r\n\t\t\tname : ' + krake_query_obj.cookies[x].name + ' : ' + 
+          '\r\n\t\t\tvalue : ' + krake_query_obj.cookies[x].value + ' : ' + 
+          '\r\n\t\t\tdomain : ' + krake_query_obj.cookies[x].domain );        
       }
       
     };    
