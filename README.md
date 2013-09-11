@@ -17,3 +17,9 @@ A standalone phantomjs server that takes in Krake definitions via HTTP post via 
     
 - test/
     - a series of test files written to coffee-script that utitlizes jasmine-node in NodeJS for testing
+
+- logs/
+    - where the log files are written to
+
+- shell/
+    - the shell script for restarting the phantomjs server background process
