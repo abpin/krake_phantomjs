@@ -1,1 +1,197 @@
 Running phantom webserver at port :  9701
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=icewoods
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:email addresses\r\n\t\tdom_query://*[@id=\"ypsint\"]/div[2]/div/div/div/div/div[3]"],"result_rows":[{"email addresses":"歡迎光臨 ICEWOODS 冰河森林數位科技有限公司的購物商城!\n\n\n您可以透過以下管道與我們聯絡:\nMSN: sms01@playwoods.com\nE-mail: serv001@icewoods.com\n電話: (02)2528-2825#600(客服專線)\n\n\n我們在台北國父紀念館捷運站附近,步行約5分鐘。歡迎周一到周五15:00~20:00 預約 面交。\n周六周日可於板橋捷運站面交\n**面交前請先電話確認，否則白跑一趟就不好意思囉^^\n\n\n如需 (貨到付) 服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價)\n\n\n如果在 Yahoo 超級商城 使用 (超商取貨(全家/萊爾富/OK) 方式取貨，\n請您於匯款完成後，將您指定的超商資訊寄到serv001@icewoods.com；\n(超商資訊請參考 http://cvs.map.com.tw/)\n資料確認後我們會盡快出貨。\n\n\n如果在 Yahoo 超級商城 使用 (面交) 方式取貨，\n請您於匯款完成後30天內到本公司取貨；\n若逾時不取，則本公司會以 [客戶的名義]，\n將商品捐贈給 [台灣兒童暨家庭扶助基金會] ；\n替[忘記取貨]或是[有意做善事]的您，積福積壽積功德。\n\n\n感謝大家的支持與愛護!!\n\n\n\n冰河森林公司官網 http://www.ICEWOODS.com/\n\n\n本公司四個專屬網站：\n\n[遊戲森林PS3/Wii/XBOX360 相關遊戲或周邊商品]\nhttp://www.GameWoods.net/\n\n[華人最大審判之眼/審判魔眼專門網站]\nhttp://www.EOJgame.com/\n\n[自產自銷台灣咖啡豆]\nhttp://www.La-Coffee.com.tw/\n\n[利佳龍有限公司 Zexon 品牌的專門抗菌 N95口罩 等商品]\nhttp://www.ZEXON.com.tw/\n \n\n聯絡方式：\nTEL: (02)2733-7333 分機600\n地址: 台北市信義區基隆路二段77號8樓之3 (1樓是合作金庫)\n地圖請參考: http://www.icewoods.com/contactus.html\n\n\n\n重要 ：\n注意事項\n\n\n如需貨到付服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價) \n\n\n\nPS: \n本公司有分下列產品線，請大家依照需要輸入關鍵字，尋找自己需要的商品喔\n\n關鍵字範例如右 : 玩具森林 星際大戰\n(鍵入此關鍵字，就能搜尋到本公司的公仔商品)\n\n\n商品線如下：\n\n[冰河森林]\n魔法風雲會卡片商品；本公司自製或研發的商品；合作廠商商品等。\n\n[遊戲森林]  或是 [GameWoods]  \n PS3/Wii/XBOX360 相關遊戲或周邊商品、 審判之眼/審判魔眼/魔法風雲會商品專區、 所有益智遊戲或是不插電桌上遊戲\n\n[玩具森林] \n 有最新的變形金剛；Mighty Muggs；HASBRO孩之寶；樂高模型；日版、美版、陸版品牌玩具模型公仔等。"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=icewoods
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:phone numbers\r\n\t\tdom_query://*[@id=\"ypsint\"]/div[2]/div/div/div/div/div[3]"],"result_rows":[{"phone numbers":"歡迎光臨 ICEWOODS 冰河森林數位科技有限公司的購物商城!\n\n\n您可以透過以下管道與我們聯絡:\nMSN: sms01@playwoods.com\nE-mail: serv001@icewoods.com\n電話: (02)2528-2825#600(客服專線)\n\n\n我們在台北國父紀念館捷運站附近,步行約5分鐘。歡迎周一到周五15:00~20:00 預約 面交。\n周六周日可於板橋捷運站面交\n**面交前請先電話確認，否則白跑一趟就不好意思囉^^\n\n\n如需 (貨到付) 服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價)\n\n\n如果在 Yahoo 超級商城 使用 (超商取貨(全家/萊爾富/OK) 方式取貨，\n請您於匯款完成後，將您指定的超商資訊寄到serv001@icewoods.com；\n(超商資訊請參考 http://cvs.map.com.tw/)\n資料確認後我們會盡快出貨。\n\n\n如果在 Yahoo 超級商城 使用 (面交) 方式取貨，\n請您於匯款完成後30天內到本公司取貨；\n若逾時不取，則本公司會以 [客戶的名義]，\n將商品捐贈給 [台灣兒童暨家庭扶助基金會] ；\n替[忘記取貨]或是[有意做善事]的您，積福積壽積功德。\n\n\n感謝大家的支持與愛護!!\n\n\n\n冰河森林公司官網 http://www.ICEWOODS.com/\n\n\n本公司四個專屬網站：\n\n[遊戲森林PS3/Wii/XBOX360 相關遊戲或周邊商品]\nhttp://www.GameWoods.net/\n\n[華人最大審判之眼/審判魔眼專門網站]\nhttp://www.EOJgame.com/\n\n[自產自銷台灣咖啡豆]\nhttp://www.La-Coffee.com.tw/\n\n[利佳龍有限公司 Zexon 品牌的專門抗菌 N95口罩 等商品]\nhttp://www.ZEXON.com.tw/\n \n\n聯絡方式：\nTEL: (02)2733-7333 分機600\n地址: 台北市信義區基隆路二段77號8樓之3 (1樓是合作金庫)\n地圖請參考: http://www.icewoods.com/contactus.html\n\n\n\n重要 ：\n注意事項\n\n\n如需貨到付服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價) \n\n\n\nPS: \n本公司有分下列產品線，請大家依照需要輸入關鍵字，尋找自己需要的商品喔\n\n關鍵字範例如右 : 玩具森林 星際大戰\n(鍵入此關鍵字，就能搜尋到本公司的公仔商品)\n\n\n商品線如下：\n\n[冰河森林]\n魔法風雲會卡片商品；本公司自製或研發的商品；合作廠商商品等。\n\n[遊戲森林]  或是 [GameWoods]  \n PS3/Wii/XBOX360 相關遊戲或周邊商品、 審判之眼/審判魔眼/魔法風雲會商品專區、 所有益智遊戲或是不插電桌上遊戲\n\n[玩具森林] \n 有最新的變形金剛；Mighty Muggs；HASBRO孩之寶；樂高模型；日版、美版、陸版品牌玩具模型公仔等。"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.linkedin.com/in/garyjob
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:name\r\n\t\tdom_query:/html[1]/body[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]/span[1]"],"result_rows":[{"name":"Gary Teh"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.linkedin.com/in/garyjob
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:name\r\n\t\tdom_query:.full-name"],"result_rows":[{"name":"Gary Teh"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.mall.yahoo.com/merchant_homepage?catid=0&searchby=sname&sort_by=product_count&order_by=0
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:shop rating\r\n\t\tdom_query:/html[1]/body[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr/td[1]/p[1]/span[1]/a[1]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:shop rating_link\r\n\t\tdom_query:/html[1]/body[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr/td[1]/p[1]/span[1]/a[1]","[PHANTOM_SERVER] extracting next page using jQuery\r\n\t\tdom_query : .pages strong+a"],"next_page":"http://tw.mall.yahoo.com/merchant_homepage?catid=0&searchby=sname&sort_by=product_count&order_by=0&searchby=sname&apg=2","result_rows":[{"shop rating":"9.2","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=taaze"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=espbook"},{"shop rating":"9.2","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=dks"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=hanshin"},{"shop rating":"6.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=comall88"},{"shop rating":"8.4","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=tw1111"},{"shop rating":"8.3","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=imake"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=lelo"},{"shop rating":"8.7","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=yc8899"},{"shop rating":"9.3","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=diycrafts"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=cddvdgo"},{"shop rating":"8.3","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=tata888"},{"shop rating":"9.4","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=eding"},{"shop rating":"7.9","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=love"},{"shop rating":"8.5","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=masterpiece2"},{"shop rating":"8.7","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=twhiq"},{"shop rating":"8.2","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=adulttoy"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=gwt0800"},{"shop rating":"8.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=jessie-belle.com"},{"shop rating":"8.6","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=act1688"},{"shop rating":"7.6","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=banana6966"},{"shop rating":"7.8","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=lover"},{"shop rating":"9.2","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=happybookstore"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=funbox"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=cclife"},{"shop rating":"8.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=divelgood"},{"shop rating":"8.5","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=tata168"},{"shop rating":"8.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=outdoorfun"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=ifds"},{"shop rating":"8.9","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=thetime"},{"shop rating":"8.9","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=ls"},{"shop rating":"8.8","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=119"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=eclife"},{"shop rating":"9.3","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=icewoods"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=daun"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=rabbit"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=silkbook"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=stationery"},{"shop rating":"7.4","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=hotnet7979"},{"shop rating":"9.2","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=doskin"},{"shop rating":"9.1","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=badtw"},{"shop rating":"9.6","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=e-brandboutique"},{"shop rating":"8.9","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=mall"},{"shop rating":"9.3","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=guitar"},{"shop rating":"8.7","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=ezmore"},{"shop rating":"8.5","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=watchpens"},{"shop rating":"9.0","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=tonfonwu"},{"shop rating":"7.9","shop rating_link":"http://tw.user.mall.yahoo.com/rating/list?sid=psmall"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.user.mall.yahoo.com/rating/list?sid=psmall
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop name\r\n\t\tdom_query:.title h1","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:past week viewer traffic\r\n\t\tdom_query:/html[1]/body[1]/div/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:number of rating\r\n\t\tdom_query:/html[1]/body[1]/div/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop contact page\r\n\t\tdom_query:a:contains('商店介紹')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:merchant product page\r\n\t\tdom_query:a:contains('全部商品')"],"result_rows":[{"merchant product page":"http://tw.mall.yahoo.com/search?m=list&sid=psmall&hpp=store_leftnav","number of rating":"第 1 頁 ， 共 1304 頁 （共 13040 筆）\n\t\t\t\t\t\t\t\t\n\t\t下一頁","past week viewer traffic":"近一週瀏覽次數：447529","shop contact page":"http://tw.rd.yahoo.com/referurl/mall/store/intro_tab/*http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=psmall&hpp=store_tab_3","shop name":"PS Mall"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.rd.yahoo.com/referurl/mall/store/intro_tab/*http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=psmall&hpp=store_tab_3
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:phone\r\n\t\tdom_query:li:contains('服務電話')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop fax\r\n\t\tdom_query:li:contains('傳真號碼')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:address\r\n\t\tdom_query:li:contains('商店地址')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:person in charge\r\n\t\tdom_query:li:contains('商業負責人')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop name\r\n\t\tdom_query:li:contains('商店名稱')"],"result_rows":[{"address":"商店地址：新北市土城區學成路91巷1號","person in charge":"商業負責人：李姵萱","phone":"服務電話：0222738587","shop fax":"傳真號碼：0000000000","shop name":"商店名稱：沛麗星國際有限公司"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.mall.yahoo.com/search?m=list&sid=psmall&hpp=store_leftnav
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:product name\r\n\t\tdom_query:.desc a","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:product price\r\n\t\tdom_query:.price strong"],"result_rows":[{"product name":"PS Mall╭＊風靡韓國大號彈簧軟性呼啦圈 ...","product price":"189"},{"product name":"PS Mall╭＊ 春夏韓版休閒風 雪紡下襬前...","product price":"145"},{"product name":"PS Mall╭＊日本超熱賣第二代的美臀坐墊(...","product price":"199"},{"product name":"PS Mall╭＊小曼老師推薦魔蠍刷 美體刷 ...","product price":"139"},{"product name":"PS Mall╭＊無線跳繩一繩兩用電子計數跳繩...","product price":"245"},{"product name":"PS Mall╭＊手機臂套iPhone5、三星...","product price":"199"},{"product name":"PS Mall╭＊韓國熱賣 LED 單顆水鑽耳...","product price":"99"},{"product name":"PS Mall╭＊超人氣OL必備愛用 甜甜圈兩...","product price":"179"},{"product name":"PS Mall╭＊ LED 耳環  (一對) ...","product price":"89"},{"product name":"PS Mall╭＊2013秋裝韓版開衫帶帽蕾絲...","product price":"349"},{"product name":"PS Mall╭＊韓版新款女裝秋裝中長款糖果色...","product price":"490"},{"product name":"PS Mall╭＊韓秋冬新款牛仔上衣小外套可拆...","product price":"599"},{"product name":"PS Mall╭＊公主蕾絲水鑽蝴蝶結深V露股溝...","product price":"9"},{"product name":"PS Mall╭＊風靡韓國大號彈簧軟性呼啦圈 ...","product price":"189"},{"product name":"PS Mall╭＊公主風水玉圓點 蝴蝶結 性感...","product price":"9"},{"product name":"PS Mall╭＊韓夏季可愛的骷髏造型logo...","product price":"99"},{"product name":"PS Mall╭＊韓國日本冰淇淋糖果螢光色手錶...","product price":"149"},{"product name":"PS Mall╭＊ 韓版修身顯瘦款 百搭雙排字...","product price":"99"},{"product name":"PS Mall╭＊環保無針釘書機 方便釘書機不...","product price":"149"},{"product name":"PS Mall╭＊ 春夏韓版休閒風 雪紡下襬前...","product price":"145"},{"product name":"PS Mall╭＊韓國飾品氣質款滿鑽心型戒指 ...","product price":"10"},{"product name":"PS Mall╭＊韓款時尚黑色魅力翻領無袖長背...","product price":"99"},{"product name":"PS Mall╭＊韓妞個性感字母長背心 無袖長...","product price":"99"},{"product name":"折扣加PS Mall╭＊療癒熱賣!!可愛動物尾...","product price":"149"},{"product name":"PS Mall╭＊日本超熱賣第二代的美臀坐墊(...","product price":"199"},{"product name":"PS Mall╭＊小曼老師推薦魔蠍刷 美體刷 ...","product price":"139"},{"product name":"PS Mall╭＊ 輕巧旅行收納組/旅行收納袋...","product price":"199"},{"product name":"PS Mall╭＊歐美大牌超垂前短後長 黑白方...","product price":"99"},{"product name":"PS Mall╭＊夏季新款 螢光字母網紗透視拼...","product price":"199"},{"product name":"PS Mall╭＊韓版女裝可愛圓領貓咪修身短袖...","product price":"99"},{"product name":"PS Mall╭＊可愛屏幕顯示器透明留言貼板 ...","product price":"125"},{"product name":"PS Mall╭＊現貨搶購99元 黑白色直條紋...","product price":"99"},{"product name":"PS Mall╭＊彩色垂墜感防曬衣 螢光連帽寬...","product price":"139"},{"product name":"PS Mall╭＊叉肩豹紋袖字母T恤 短袖 短...","product price":"99"},{"product name":"PS Mall╭＊韓版時尚運動休閒套裝女款 【...","product price":"387"},{"product name":"PS Mall╭＊夏季百搭必備高跟鬆糕厚底人字...","product price":"139"},{"product name":"PS Mall╭＊韓版甜美百搭兔子圖案短​​袖...","product price":"99"},{"product name":"PS Mall╭＊甜美萬能搭配 坡跟厚底鬆糕底...","product price":"125"},{"product name":"PS Mall╭＊正點韓國國民版大牌設計撞色雪...","product price":"99"},{"product name":"PS Mall╭＊夏百搭時尚彩色印花圖案無袖多...","product price":"99"},{"product name":"PS Mall╭＊夏日必備 百搭內搭燙鑽工字小...","product price":"99"},{"product name":"PS Mall╭＊ 韓國可愛款滿鑽心型耳釘式 ...","product price":"10"},{"product name":"PS Mall╭＊ 韓版亮麗水晶禮物造型項鍊 ...","product price":"10"},{"product name":"PS Mall╭＊蕾絲鏤空蕾絲勾花拼接內搭背心...","product price":"99"},{"product name":"PS Mall╭＊早秋韓版骷髏頭字母T恤修身長...","product price":"99"},{"product name":"PS Mall╭＊任選兩件189特大可移動多款...","product price":"499"},{"product name":"PS Mall╭＊引領時尚潮流，快速變換髮色一...","product price":"99"},{"product name":"PS Mall╭＊嘻哈瘋棒球雙色棉褲 情侶 運...","product price":"390"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.user.mall.yahoo.com/rating/list?sid=tonfonwu
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.mdscollections.com/cat-new-arrivals-cfm.cfm
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop name\r\n\t\tdom_query:.title h1","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:past week viewer traffic\r\n\t\tdom_query:/html[1]/body[1]/div/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:number of rating\r\n\t\tdom_query:/html[1]/body[1]/div/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:shop contact page\r\n\t\tdom_query:a:contains('商店介紹')","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:merchant product page\r\n\t\tdom_query:a:contains('全部商品')"],"result_rows":[{"merchant product page":"http://tw.mall.yahoo.com/search?m=list&sid=tonfonwu&hpp=store_leftnav","number of rating":"第 1 頁 ， 共 172 頁 （共 1716 筆）\n\t\t\t\t\t\t\t\t\n\t\t下一頁","past week viewer traffic":"近一週瀏覽次數：193344","shop contact page":"http://tw.rd.yahoo.com/referurl/mall/store/intro_tab/*http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=tonfonwu&hpp=store_tab_3","shop name":"通販屋日本平價精品百貨"}]}
+
+
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:product page\r\n\t\tdom_query:/html[1]/body[1]/table/tbody[1]/tr[1]/td[1]/table[4]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/table[3]/tbody[1]/tr[1]/td[1]/a[1]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:product page_link\r\n\t\tdom_query:/html[1]/body[1]/table/tbody[1]/tr[1]/td[1]/table[4]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/table[3]/tbody[1]/tr[1]/td[1]/a[1]"],"result_rows":[{"product page":"Jump into the Jumpsuit Style (2219264)","product page_link":"http://www.mdscollections.com/pd-jump-into-the-jumpsuit-style-2219264.cfm"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.mdscollections.com/pd-jump-into-the-jumpsuit-style-2219264.cfm
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+ReferenceError: Can't find variable: deliveryTab
+    : 1
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:price\r\n\t\tdom_query:/html[1]/body[1]/table/tbody[1]/tr[1]/td[1]/table[4]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[1]/td[1]/form[1]/table[1]/tbody[1]/tr[2]/td[3]/table[1]/tbody[1]/tr[3]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[2]/span[1]"],"result_rows":[{"price":"52.90"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.mdscollections.com/cat_mds_accessories1.cfm
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:prod_image\r\n\t\tdom_query://img[id=\"prodimg1\"]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:title\r\n\t\tdom_query://a[@class=\"listing_product_name\"]","[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:price\r\n\t\tdom_query://span[@class=\"listing_price\"]","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:detailed_page_href\r\n\t\tdom_query:.listing_product_name"],"result_rows":[{"detailed_page_href":"http://www.mdscollections.com/pd-pyramid-games-necklace-4419081.cfm","price":"18.90","prod_image":"http://images7.mdscollections.com/prod_images_small/IMG_22421.jpg","title":"Pyramid Games Necklace (4419081)"},{"detailed_page_href":"http://www.mdscollections.com/pd-candies-in-tow-necklace-4419080.cfm","price":"24.90","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_22511.jpg","title":"Candies in Tow Necklace (4419080)"},{"detailed_page_href":"http://www.mdscollections.com/pd-edgy-style-bangle-set-4419072.cfm","price":"22.90","prod_image":"http://images10.mdscollections.com/prod_images_small/IMG_2278.jpg","title":"Edgy Style Bangle Set (4419072)"},{"detailed_page_href":"http://www.mdscollections.com/pd-hollow-triangles-necklace-4419083.cfm","price":"18.90","prod_image":"http://images8.mdscollections.com/prod_images_small/IMG_2230.jpg","title":"Hollow Triangles Necklace (4419083)"},{"detailed_page_href":"http://www.mdscollections.com/pd-cleopatra-s-gems-necklace-4419089.cfm","price":"19.90","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_2257.jpg","title":"Cleopatra’s Gems Necklace (4419089)"},{"detailed_page_href":"http://www.mdscollections.com/pd-clip-on-skinny-belt-in-green-4418809grnf.cfm","price":"18.00","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_13621.JPG","title":"Clip-On Skinny Belt in Green (4418809GRNF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-heart-staples-belt-in-mustard-4418785mustf.cfm","price":"19.00","prod_image":"http://images10.mdscollections.com/prod_images_small/IMG_14864.JPG","title":"Heart Staples Belt in Mustard (4418785MUSTF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-eastenders-skinny-belt-in-silver-4418783silverf.cfm","price":"18.00","prod_image":"http://images7.mdscollections.com/prod_images_small/IMG_14822.JPG","title":"Eastenders Skinny Belt in Silver (4418783SILVERF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-eastenders-skinny-belt-in-yellow-4418783yellf.cfm","price":"18.00","prod_image":"http://images8.mdscollections.com/prod_images_small/IMG_14842.JPG","title":"Eastenders Skinny Belt in Yellow (4418783YELLF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-jewel-embers-belt-in-nude-4418787nudef.cfm","price":"19.00","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_13521.JPG","title":"Jewel Embers Belt in Nude (4418787NUDEF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-bling-factor-diamante-necklace-in-black-4418540blkf.cfm","price":"19.00","prod_image":"http://images10.mdscollections.com/prod_images_small/MDSAccessories2304134255.JPG","title":"Bling Factor Diamante Necklace in Black (4418540BLKF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-pretzels-aligned-belt-in-black-4418770blkf.cfm","price":"18.00","prod_image":"http://images9.mdscollections.com/prod_images_small/MDSAccessories2304134298.JPG","title":"Pretzels Aligned Belt in Black (4418770BLKF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-pretzels-aligned-belt-in-nude-4418770nudef.cfm","price":"18.00","prod_image":"http://images10.mdscollections.com/prod_images_small/MDSAccessories2304134301.JPG","title":"Pretzels Aligned Belt in Nude (4418770NUDEF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-pearlton-carlton-necklace-4418721f.cfm","price":"20.00","prod_image":"http://images9.mdscollections.com/prod_images_small/MDSAccessories2304134323.JPG","title":"Pearlton Carlton Necklace (4418721F)"},{"detailed_page_href":"http://www.mdscollections.com/pd-phoebie-s-din-diamante-necklace-4418724f.cfm","price":"20.00","prod_image":"http://images7.mdscollections.com/prod_images_small/MDSAccessories2304134283.JPG","title":"Phoebie’s Din Diamante Necklace (4418724F)"},{"detailed_page_href":"http://www.mdscollections.com/pd-butterfly-effect-jewelled-necklace-4418709f.cfm","price":"20.00","prod_image":"http://images8.mdscollections.com/prod_images_small/MDSAccessories2304134289.JPG","title":"Butterfly Effect Jewelled Necklace (4418709F)"},{"detailed_page_href":"http://www.mdscollections.com/pd-dragon-s-tooth-necklace-4418711f.cfm","price":"20.00","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_10844.JPG","title":"Dragon’s Tooth Necklace (4418711F)"},{"detailed_page_href":"http://www.mdscollections.com/pd-bling-factor-diamante-necklace-in-blue-4418540bluf.cfm","price":"19.00","prod_image":"http://images8.mdscollections.com/prod_images_small/MDSAccessories2304134286.JPG","title":"Bling Factor Diamante Necklace in Blue (4418540BLUF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-jewels-among-pearls-necklace-in-blue-4418712bluf.cfm","price":"19.00","prod_image":"http://images9.mdscollections.com/prod_images_small/IMG_1312.JPG","title":"Jewels Among Pearls Necklace in Blue (4418712BLUF)"},{"detailed_page_href":"http://www.mdscollections.com/pd-blinking-assortment-necklace-4418710f.cfm","price":"26.00","prod_image":"http://images9.mdscollections.com/prod_images_small/MDSAccessories2304134258.JPG","title":"Blinking Assortment Necklace (4418710F)"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://yelp.com/biz/firefly-san-francisco
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] : waiting for 30000 milliseconds
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:rating\r\n\t\tdom_query:#bizInfoHeader .rating .star-img","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:opentable_exists\r\n\t\tdom_query:#opentable-search-form:contains(\"Make a Reservation\") legend","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:address\r\n\t\tdom_query:address","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:num_reviews\r\n\t\tdom_query:.review-count:first","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Price\r\n\t\tdom_query:#price_tip","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Phone\r\n\t\tdom_query:#bizPhone","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Website\r\n\t\tdom_query:#bizUrl a"],"result_rows":[{"Phone":"(415) 821-7652","Price":"$$$","Website":"fireflyrestaurant.com","address":"4288 24th St\t\t(between Douglass St & Diamond St)\nSan Francisco, CA 94114\n\t\t\tNeighborhood: Noe Valley","num_reviews":"1099 reviews","opentable_exists":"Make a Reservation","rating":"4.0 star rating"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://tw.user.mall.yahoo.com/booth/view/stIntroMgt?sid=icewoods
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using Xpath\r\n\t\tcol_name:email addresses\r\n\t\tdom_query://*[@id=\"ypsint\"]/div[2]/div/div/div/div/div[3]"],"result_rows":[{"email addresses":"歡迎光臨 ICEWOODS 冰河森林數位科技有限公司的購物商城!\n\n\n您可以透過以下管道與我們聯絡:\nMSN: sms01@playwoods.com\nE-mail: serv001@icewoods.com\n電話: (02)2528-2825#600(客服專線)\n\n\n我們在台北國父紀念館捷運站附近,步行約5分鐘。歡迎周一到周五15:00~20:00 預約 面交。\n周六周日可於板橋捷運站面交\n**面交前請先電話確認，否則白跑一趟就不好意思囉^^\n\n\n如需 (貨到付) 服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價)\n\n\n如果在 Yahoo 超級商城 使用 (超商取貨(全家/萊爾富/OK) 方式取貨，\n請您於匯款完成後，將您指定的超商資訊寄到serv001@icewoods.com；\n(超商資訊請參考 http://cvs.map.com.tw/)\n資料確認後我們會盡快出貨。\n\n\n如果在 Yahoo 超級商城 使用 (面交) 方式取貨，\n請您於匯款完成後30天內到本公司取貨；\n若逾時不取，則本公司會以 [客戶的名義]，\n將商品捐贈給 [台灣兒童暨家庭扶助基金會] ；\n替[忘記取貨]或是[有意做善事]的您，積福積壽積功德。\n\n\n感謝大家的支持與愛護!!\n\n\n\n冰河森林公司官網 http://www.ICEWOODS.com/\n\n\n本公司四個專屬網站：\n\n[遊戲森林PS3/Wii/XBOX360 相關遊戲或周邊商品]\nhttp://www.GameWoods.net/\n\n[華人最大審判之眼/審判魔眼專門網站]\nhttp://www.EOJgame.com/\n\n[自產自銷台灣咖啡豆]\nhttp://www.La-Coffee.com.tw/\n\n[利佳龍有限公司 Zexon 品牌的專門抗菌 N95口罩 等商品]\nhttp://www.ZEXON.com.tw/\n \n\n聯絡方式：\nTEL: (02)2733-7333 分機600\n地址: 台北市信義區基隆路二段77號8樓之3 (1樓是合作金庫)\n地圖請參考: http://www.icewoods.com/contactus.html\n\n\n\n重要 ：\n注意事項\n\n\n如需貨到付服務， 請來電訂購詢問。\n黑貓貨到付款手續費 120 元(大型物件或是外島另行報價) \n\n\n\nPS: \n本公司有分下列產品線，請大家依照需要輸入關鍵字，尋找自己需要的商品喔\n\n關鍵字範例如右 : 玩具森林 星際大戰\n(鍵入此關鍵字，就能搜尋到本公司的公仔商品)\n\n\n商品線如下：\n\n[冰河森林]\n魔法風雲會卡片商品；本公司自製或研發的商品；合作廠商商品等。\n\n[遊戲森林]  或是 [GameWoods]  \n PS3/Wii/XBOX360 相關遊戲或周邊商品、 審判之眼/審判魔眼/魔法風雲會商品專區、 所有益智遊戲或是不插電桌上遊戲\n\n[玩具森林] \n 有最新的變形金剛；Mighty Muggs；HASBRO孩之寶；樂高模型；日版、美版、陸版品牌玩具模型公仔等。"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://www.linkedin.com/in/garyjob
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:name\r\n\t\tdom_query:.full-name"],"result_rows":[{"name":"Gary Teh"}]}
+
+
+[PHANTOM_SERVER] Processing page 
+		URL:http://yelp.com/biz/gary-danko-san-francisco
+[PHANTOM_SERVER] Setting Cookies
+[PHANTOM_SERVER] Setting user agent headers
+[PHANTOM_SERVER] Opening page
+[PHANTOM_SERVER] including jQuery
+[PHANTOM_SERVER] jQuery included
+[PHANTOM_SERVER] : waiting for 10000 milliseconds
+[PHANTOM_SERVER] extracting DOM elements
+[PHANTOM_SERVER] Extraction finished.
+{"logs":["[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:rating\r\n\t\tdom_query:#bizInfoHeader .rating .star-img","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:opentable_exists\r\n\t\tdom_query:#opentable-search-form:contains(\"Make a Reservation\") legend","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:address\r\n\t\tdom_query:address","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:num_reviews\r\n\t\tdom_query:.review-count:first","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Price\r\n\t\tdom_query:#price_tip","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Phone\r\n\t\tdom_query:#bizPhone","[PHANTOM_SERVER] extract using jQuery\r\n\t\tcol_name:Website\r\n\t\tdom_query:#bizUrl a"],"result_rows":[{"Phone":"(415) 749-2060","Price":"$$$$","Website":"garydanko.com","address":"800 N Point StSan Francisco, CA 94109\n\t\t\tNeighborhoods: Fisherman's Wharf, Russian Hill","num_reviews":"3455 reviews","rating":"4.5 star rating"}]}
+
+

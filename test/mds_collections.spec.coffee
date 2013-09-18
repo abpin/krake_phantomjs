@@ -1,6 +1,6 @@
 http = require 'http'
 KSON = require 'kson'
-jasmine.getEnv().defaultTimeoutInterval = 20000;
+jasmine.getEnv().defaultTimeoutInterval = 50000;
 
 describe "test extraction of Product Listing Info from MDScollections using Xpath", ()->
   it "should respond with success and an object ", (done)->
@@ -41,7 +41,7 @@ describe "test extraction of Product Listing Info from MDScollections using Xpat
         expect(typeof response_obj.message.result_rows[0]).toBe "object"
         expect(typeof response_obj.message.result_rows[0].product_name).toBe "string"        
         expect(typeof response_obj.message.result_rows[0].product_price).toBe "string"
-        expect(response_obj.message.result_rows.length).toEqual 20
+        expect(response_obj.message.result_rows.length).toEqual 40
         done() 
 
 
