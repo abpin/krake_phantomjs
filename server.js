@@ -70,6 +70,10 @@ var openPage = function(page, krake_query_obj, callback) {
     //          log_mesage1:String, ...
     results = page.evaluate(function(krake_query_obj) {
 
+      var results = {};
+      results.logs = [];
+      results.result_rows = [];
+
       // Gets the value of a DOM attribute
       var extractAttributeFromDom = function(dom_obj, required_attribute) {
 
@@ -100,11 +104,7 @@ var openPage = function(page, krake_query_obj, callback) {
 
         return return_val.trim();
 
-      }      
-      
-      var results = {};
-      results.logs = [];
-      results.result_rows = [];
+      }
 
       // Goes through each columns
       for(var x = 0; x < krake_query_obj.columns.length ; x++) {
@@ -195,7 +195,10 @@ var openPage = function(page, krake_query_obj, callback) {
       return results;
         
     }, krake_query_obj); // eo evaluation
-    console.log('[PHANTOM_SERVER] Extraction finished.');    
+    console.log('[PHANTOM_SERVER] Extraction finished.');
+    console.log('[PHANTOM_SERVER] Query');    
+    console.log(JSON.stringify(krake_query_obj) + '\r\n\r\n');
+    console.log('[PHANTOM_SERVER] result');        
     console.log(JSON.stringify(results) + '\r\n\r\n');
     callback('success', results);
     page.close();
