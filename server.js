@@ -55,7 +55,7 @@ var openPage = function(page, krake_query_obj, callback) {
   // @extracts the DOM elements from the page  
   var extractDomElements = function() {
     //page.render('facebook-phantom.pdf');
-  	console.log('[PHANTOM_SERVER] extracting DOM elements');    
+  	console.log('[PHANTOM_SERVER] extracting DOM elements');
 
     // @Description : extracts value from page
     // @return: 
@@ -69,38 +69,38 @@ var openPage = function(page, krake_query_obj, callback) {
     //        logs:Array
     //          log_mesage1:String, ...
     results = page.evaluate(function(krake_query_obj) {
-      
+
       // Gets the value of a DOM attribute
-       var extractAttributeFromDom = function(dom_obj, required_attribute) {
+      var extractAttributeFromDom = function(dom_obj, required_attribute) {
 
-         var return_val = '';
+        var return_val = '';
 
-         switch(required_attribute) {
-           case 'href'       :
-           case 'src'        :
-             return_val = dom_obj[required_attribute];
-             break;
+        switch(required_attribute) {
+          case 'href'       :
+          case 'src'        :
+            return_val = dom_obj[required_attribute];
+            break;
 
-           case 'innerHTML'  : 
-             return_val = dom_obj.innerHTML;
-             break;
+          case 'innerHTML'  : 
+            return_val = dom_obj.innerHTML;
+            break;
 
-           case 'innerText'  :
-           case 'textContent':
-           case 'address'    :
-           case 'email'      :
-           case 'phone'      :
-             return_val = dom_obj.textContent || dom_obj.innerText;
-             break;
+          case 'innerText'  :
+          case 'textContent':
+          case 'address'    :
+          case 'email'      :
+          case 'phone'      :
+            return_val = dom_obj.textContent || dom_obj.innerText;
+            break;
 
-           default : 
-             return_val = required_attribute && dom_obj.getAttribute(required_attribute)
-             !return_val && (return_val = dom_obj.textContent)
-         }
+          default : 
+            return_val = required_attribute && dom_obj.getAttribute(required_attribute)
+            !return_val && (return_val = dom_obj.textContent)
+        }
 
-         return return_val.trim();
+        return return_val.trim();
 
-       }      
+      }      
       
       var results = {};
       results.logs = [];
@@ -201,7 +201,6 @@ var openPage = function(page, krake_query_obj, callback) {
     page.close();
   }
 
-  
   // @Description : the process that holds up the loading of pages
   var waitUp = function() {
 
@@ -209,14 +208,48 @@ var openPage = function(page, krake_query_obj, callback) {
       console.log('[PHANTOM_SERVER] : waiting for ' + krake_query_obj.wait + ' milliseconds')
       setTimeout(function() {
         extractDomElements();
-        
+
       }, krake_query_obj.wait);
     } else {
       extractDomElements();
-      
+
     }
   }
   
+  
+  
+  var setupJsonObject = function() {
+    var json_parse_exist = page.evaluate(function() {
+      (typeof JSON != "object") && (JSON = {});
+      return typeof JSON == "function"
+    }); 
+    console.log('[PHANTOM_SERVER] existense of json_parse ' + json_parse_exist);
+    !json_parse_exist && page.injectJs("./3p/json_parse.js") &&
+      console.log('[PHANTOM_SERVER] Set up JSON.parse');
+  }
+  
+  
+  
+  // @Description : determines if jQuery is to be included dynamically during run time
+  var includeJquery = function() {
+    
+    if(krake_query_obj.exclude_jquery) {
+      console.log('[PHANTOM_SERVER] jQuery was excluded');
+      waitUp();  
+      
+    } else {
+      // checks if jQuery is already included
+      var jquery_exist = page.evaluate(function() {
+        return (typeof jQuery == "function");
+      });
+     
+      jquery_exist && console.log("[PHANTOM_SERVER] jQuery library already exist");
+      !jquery_exist && page.injectJs("./3p/jquery.js") &&
+        console.log('[PHANTOM_SERVER] jQuery was injected');
+      waitUp();      
+    }    
+	  
+  }  
   
   // @Description : the process that handles the finished loading of pages
   /*
@@ -242,27 +275,16 @@ var openPage = function(page, krake_query_obj, callback) {
   // @Description : opens the page
   page.open(krake_query_obj.origin_url, function(status) {
     
+    
     // When opening page failed
   	if(status !== 'success') {
   	  console.log('[PHANTOM_SERVER] failed to open page.');
       callback('error', 'page opening failed');
       page.close();
-  	} else {  		
-  	  
-  	  // when excludes the jquery library 
-  	  if(krake_query_obj.exclude_jquery) {
-  	    console.log('[PHANTOM_SERVER] jQuery excluded');
-        waitUp();
-
-  	  // when includes the jquery library           	      
-  	  } else {
-  	    console.log('[PHANTOM_SERVER] including jQuery');
-  	    page.includeJs("https://api.krake.io/3p/js/jquery.js", function() {
-  	      console.log('[PHANTOM_SERVER] jQuery included');
-  	      waitUp();
-	      });  	    
-        
-  	  }
+      
+  	} else {	
+  	  setupJsonObject();
+  	  includeJquery();
   	}  	
   	
   });
