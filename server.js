@@ -221,11 +221,11 @@ var openPage = function(page, krake_query_obj, callback) {
   var setupJsonObject = function() {
     var json_parse_exist = page.evaluate(function() {
       (typeof JSON != "object") && (JSON = {});
-      return typeof JSON == "function"
+      return typeof JSON.parse == "function"
     }); 
-    console.log('[PHANTOM_SERVER] existense of json_parse ' + json_parse_exist);
+    console.log('[PHANTOM_SERVER] JSON.parse exist? ' + json_parse_exist);
     !json_parse_exist && page.injectJs("./3p/json_parse.js") &&
-      console.log('[PHANTOM_SERVER] Set up JSON.parse');
+      console.log('[PHANTOM_SERVER] Setup JSON.parse');
   }
   
   
