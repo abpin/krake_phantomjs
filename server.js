@@ -11,9 +11,9 @@ var KSON = require('./node_modules/kson/lib/kson');
 // @return : settings:Object
 //    setHeader
 //    setCookie
-var checkDomain = function(page_url) {
+var `checkDomain` = function(page_url) {
   var settings = {
-    set_header : true,
+    set_header : false,
     set_cookie : true
   }
   
