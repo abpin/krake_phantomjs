@@ -7,4 +7,4 @@ ps aux | grep server.js | grep -v grep | awk '{print $2}' | xargs kill
 
 
 echo '[PHANTOM — start_server.sh] : starting new nohup server.js'
-nohup phantomjs ../server.js > ../logs/server_log 2>&1 &
+nohup phantomjs --load-images=no ../server.js > ../logs/server_log 2>&1 &
