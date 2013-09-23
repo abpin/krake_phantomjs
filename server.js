@@ -19,6 +19,7 @@ var checkDomain = function(page_url) {
   
   var domain_info = parseUri(page_url);
   domain_info.host.match(/facebook.com/) && (settings.set_header = false);
+  domain_info.host.match(/google.com/) && (settings.set_header = true);  
   return settings;
 }
 
@@ -102,7 +103,7 @@ var openPage = function(page, krake_query_obj, callback) {
             !return_val && (return_val = dom_obj.textContent)
         }
 
-        return return_val.trim();
+        return return_val && return_val.trim() || ''
 
       }
 
@@ -277,7 +278,6 @@ var openPage = function(page, krake_query_obj, callback) {
   
   // @Description : opens the page
   page.open(krake_query_obj.origin_url, function(status) {
-    
     
     // When opening page failed
   	if(status !== 'success') {
