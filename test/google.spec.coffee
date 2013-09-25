@@ -43,6 +43,7 @@ describe "test extraction of Geolocation from Google", ()->
                             "xpath": "//*[@id='pagelet_timeline_summary']/div/a",
                             "required_attribute": "href",
                             "options": {
+                                "wait": 5000,                              
                                 "columns": [
                                   {
                                       "col_name": "joined Facebook",
@@ -86,7 +87,10 @@ describe "test extraction of Geolocation from Google", ()->
                     ]
                 }
             }
-        ]
+        ],
+        "next_page" : {
+          "dom_query" : ".b.navend a"
+        }
     })
 
     post_options = {

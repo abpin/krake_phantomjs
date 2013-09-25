@@ -55,6 +55,7 @@ var openPage = function(page, krake_query_obj, callback) {
   
   // @extracts the DOM elements from the page  
   var extractDomElements = function() {
+    
     //page.render('facebook-phantom.pdf');
   	console.log('[PHANTOM_SERVER] extracting DOM elements');
 
@@ -117,11 +118,24 @@ var openPage = function(page, krake_query_obj, callback) {
           results.logs.push("[PHANTOM_SERVER] extract using jQuery" + 
             "\r\n\t\tcol_name:" + curr_column.col_name +
             "\r\n\t\tdom_query:" + curr_column.dom_query);
-          var jquery_results = jQuery(curr_column.dom_query);
-          for (var y = 0; y < jquery_results.length ; y++ ) {
-            var curr_result_row = results.result_rows[y] || {};
-            curr_result_row[curr_column['col_name']] = extractAttributeFromDom(jquery_results[y], curr_column['required_attribute']);
-            results.result_rows[y] = curr_result_row;
+          
+          if(!curr_column.is_compound) {
+            var jquery_results = jQuery(curr_column.dom_query);
+            for (var y = 0; y < jquery_results.length ; y++ ) {
+              var curr_result_row = results.result_rows[y] || {};
+              curr_result_row[curr_column['col_name']] = extractAttributeFromDom(jquery_results[y], curr_column['required_attribute']);
+              results.result_rows[y] = curr_result_row;
+            }
+            
+          } else {
+            var jquery_results = [];
+            jQuery(curr_column.dom_query).map(function(index, item) {
+              jquery_results.push(extractAttributeFromDom(item, curr_column['required_attribute']));
+            });
+            var curr_result_row = results.result_rows[0] || {};
+            curr_result_row[curr_column['col_name']] = jquery_results.join();
+            results.result_rows[0] = curr_result_row;
+            
           }
         
         // when jQuery has been explicitly excluded
@@ -130,12 +144,25 @@ var openPage = function(page, krake_query_obj, callback) {
             "\r\n\t\tcol_name:" + curr_column.col_name +
             "\r\n\t\tdom_query:" + curr_column.dom_query);
             
-          var query_results = document.querySelectorAll(curr_column.dom_query);
-          for (var y = 0; y < query_results.length ; y++ ) {
-            var curr_result_row = results.result_rows[y] || {};
-            curr_result_row[curr_column['col_name']] = extractAttributeFromDom(query_results[y], curr_column['required_attribute']);
-            results.result_rows[y] = curr_result_row;
-          }          
+          if(!curr_column.is_compound) {
+            var query_results = document.querySelectorAll(curr_column.dom_query);
+            for (var y = 0; y < query_results.length ; y++ ) {
+              var curr_result_row = results.result_rows[y] || {};
+              curr_result_row[curr_column['col_name']] = extractAttributeFromDom(query_results[y], curr_column['required_attribute']);
+              results.result_rows[y] = curr_result_row;
+            }
+            
+          } else {
+            var query_results = document.querySelectorAll(curr_column.dom_query);
+            var final_results = [];
+            for (var y = 0; y < query_results.length ; y++ ) {
+              final_results.push(extractAttributeFromDom(query_results[y], curr_column['required_attribute']));
+            }
+            var curr_result_row = results.result_rows[0] || {};
+            curr_result_row[curr_column['col_name']] = final_results.join();
+            results.result_rows[0] = curr_result_row;
+                    
+          }
 
         // when xpath is to be sued
         } else if(curr_column.xpath) {
@@ -148,11 +175,23 @@ var openPage = function(page, krake_query_obj, callback) {
           var curr_item;
           var y = 0;
           
-          while(curr_item = xPathResults.iterateNext()) {
-            var curr_result_row = results.result_rows[y] || {}; 
-            curr_result_row[ curr_column['col_name'] ] = extractAttributeFromDom(curr_item, curr_column['required_attribute']);
-            results.result_rows[y] = curr_result_row;
-            y++;
+          if(!curr_column.is_compound) {
+            while(curr_item = xPathResults.iterateNext()) {
+              var curr_result_row = results.result_rows[y] || {}; 
+              curr_result_row[ curr_column['col_name'] ] = extractAttributeFromDom(curr_item, curr_column['required_attribute']);
+              results.result_rows[y] = curr_result_row;
+              y++;
+            }
+            
+          } else {
+            var final_results = [];
+            while(curr_item = xPathResults.iterateNext()) {
+              final_results.push(extractAttributeFromDom(curr_item, curr_column['required_attribute']));
+            }
+            var curr_result_row = results.result_rows[0] || {};
+            curr_result_row[curr_column['col_name']] = final_results.join();
+            results.result_rows[0] = curr_result_row;  
+            
           }
           
         // when both xpath and dom_query are missing

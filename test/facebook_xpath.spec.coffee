@@ -2,7 +2,7 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test extraction of Geolocation from Google", ()->
+describe "test extraction of facebook shop", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
@@ -70,7 +70,7 @@ describe "test extraction of Geolocation from Google", ()->
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
         expect(typeof response_obj.message.result_rows).toBe "object"
-        expect(response_obj.message.result_rows[0]['joined Facebook']).toEqual "11/04/2012"
+        expect(response_obj.message.result_rows[0]['joined Facebook']).toEqual "11/05/2012"
         done() 
 
 
