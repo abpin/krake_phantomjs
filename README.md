@@ -1,7 +1,8 @@
 # phantomjs_server
 
 ## Overview
-A standalone phantomjs server that takes in Krake definitions via HTTP post via a RESTFUL API and return an array of results
+A standalone phantomjs server that takes in a Krake definitions via HTTP post/RESTFUL API and returns an array of scraped results
+from a single corresponding Web Page
 
 ## Requirements
 - PhantomJS 1.8.1
@@ -23,3 +24,13 @@ A standalone phantomjs server that takes in Krake definitions via HTTP post via 
 
 - shell/
     - the shell script for restarting the phantomjs server background process
+
+## To start service
+```console
+phantomjs server.js
+```
+
+## To run service in background
+```console
+cd ./shell && ./start_server.sh
+```
