@@ -1,4 +1,5 @@
 # phantomjs_server
+by Team at [Krake.IO] (https://krake.io)
 
 ## Overview
 A standalone phantomjs server that takes in a Krake definitions via HTTP post/RESTFUL API and returns an array of scraped results
