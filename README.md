@@ -35,3 +35,10 @@ phantomjs server.js
 ```console
 cd ./shell && ./start_server.sh
 ```
+
+## To scrape a single page on yahoo
+```console
+coffee simple_client.coffee
+```
+## Reference to full API
+see [Krake Definition API] (https://krake.io/docs/define-krake)
