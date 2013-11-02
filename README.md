@@ -43,7 +43,7 @@ coffee simple_client.coffee
 
 ## To do unit testing
 ```console
-phantomjs server.js # Start server
+phantomjs server.js # Start service
 jasmine-node --coffee test # do unit test against server
 ```
 
