@@ -2,20 +2,22 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
+describe "test extraction of Product Listing Info from MDScollections using Xpath", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
     post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
+      origin_url : "http://www.mdscollections.com/cat-new-in-clothing.cfm"
+      columns : [{
+          col_name : 'product_name'
+          xpath : '//a[@class="listing_product_name"]'
+          is_index : true
+        },{
+          col_name : 'product_price'
+          xpath : '//span[@class="listing_price"]'
+      }]
     )
 
     post_options = {
@@ -35,6 +37,11 @@ describe "test Yalwa", ()->
         response_obj = KSON.parse raw_data
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
+        expect(typeof response_obj.message.result_rows).toBe "object"
+        expect(typeof response_obj.message.result_rows[0]).toBe "object"
+        expect(typeof response_obj.message.result_rows[0].product_name).toBe "string"        
+        expect(typeof response_obj.message.result_rows[0].product_price).toBe "string"
+        expect(response_obj.message.result_rows.length).toBeGreaterThan 5
         done() 
 
 

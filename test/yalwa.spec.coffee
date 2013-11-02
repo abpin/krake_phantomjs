@@ -95,7 +95,6 @@ describe "test Yalwa", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
-        console.log response_obj
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
         done() 

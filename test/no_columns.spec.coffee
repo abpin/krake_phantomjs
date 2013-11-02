@@ -1,21 +1,16 @@
 http = require 'http'
 KSON = require 'kson'
-jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
-  it "should respond with success and an object ", (done)->
+describe "testing Krake definition with no origin url", ()->
+  it "should respond with an error ", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
     post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
+      origin_url : 'http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=iphone'      
+      data :
+        source : 'amazon'
     )
 
     post_options = {
@@ -33,8 +28,8 @@ describe "test Yalwa", ()->
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
         response_obj = KSON.parse raw_data
-        expect(response_obj.status).toEqual "success"
-        expect(typeof response_obj.message).toBe "object"
+        expect(response_obj.status).toEqual "error"
+        expect(response_obj.message).toEqual "columns not defined"
         done() 
 
 

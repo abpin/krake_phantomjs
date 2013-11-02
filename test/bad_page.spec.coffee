@@ -1,21 +1,22 @@
 http = require 'http'
 KSON = require 'kson'
-jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
-  it "should respond with success and an object ", (done)->
+describe "testing bad page on lelong.com.my", ()->
+  it "should not crash", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
     post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
+       "exclude_jquery" : true,
+       "origin_url": "http://www.lelong.com.my/Auc/Feedback/UserRating.asp?UserID=CoconutIsland@1",
+       "columns": [
+           {
+               "col_name": "email address",
+               "xpath": '//*[@id="SellerInfoContainer"]/table/tbody/tr[2]/td[3]/a',
+               required_attribute : 'href'
+           }
+       ]
     )
 
     post_options = {
@@ -35,9 +36,15 @@ describe "test Yalwa", ()->
         response_obj = KSON.parse raw_data
         expect(response_obj.status).toEqual "success"
         expect(typeof response_obj.message).toBe "object"
+        expect(typeof response_obj.message.result_rows).toBe "object"
+        expect(typeof response_obj.message.result_rows[0]).toBe "object"
+        expect(response_obj.message.result_rows[0]['email address']).toEqual "mailto:coconutisland@hotmail.my"
         done() 
 
 
     # write parameters to post body
     post_req.write(post_data);
     post_req.end();
+
+
+

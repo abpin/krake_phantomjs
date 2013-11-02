@@ -11,7 +11,7 @@ var KSON = require('./node_modules/kson/lib/kson');
 // @return : settings:Object
 //    setHeader
 //    setCookie
-var checkDomain = function(page_url) {
+var getDomainSettings = function(page_url) {
   var settings = {
     set_header : false,
     set_cookie : true
@@ -164,7 +164,7 @@ var openPage = function(page, krake_query_obj, callback) {
                     
           }
 
-        // when xpath is to be sued
+        // when xpath is to be used
         } else if(curr_column.xpath) {
 
           results.logs.push("[PHANTOM_SERVER] extract using Xpath" + 
@@ -260,7 +260,7 @@ var openPage = function(page, krake_query_obj, callback) {
   }
   
   
-  
+  // @Description : Ensures JSON.parse method is always available
   var setupJsonObject = function() {
     var json_parse_exist = page.evaluate(function() {
       (typeof JSON != "object") && (JSON = {});
@@ -407,7 +407,7 @@ var processPage = function(krake_query_obj, callback) {
   } else {
     console.log('[PHANTOM_SERVER] Processing page \r\n\t\tURL:' + krake_query_obj.origin_url);
     var page = require('webpage').create();
-    var domain_settings = checkDomain(krake_query_obj.origin_url);
+    var domain_settings = getDomainSettings(krake_query_obj.origin_url);
     domain_settings.set_cookie && setCookies(page, krake_query_obj); 
     domain_settings.set_header && setDefaultHeader(page);
     openPage(page, krake_query_obj, function(status, results) {

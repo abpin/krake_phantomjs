@@ -2,20 +2,37 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
+describe "testing Krake definition with jQuery excluded", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
     post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
+      exclude_jquery : true,
+      origin_url : 'http://sg.yahoo.com/?p=us'
+      columns: [{
+          col_name: 'product_name'
+          dom_query: '.lrg.bold'
+        },{
+          col_name: 'product_image'
+          dom_query: '.image img'
+          required_attribute : 'src'        
+        },{        
+          col_name : 'price'
+          dom_query : 'span.bld.lrg.red' 
+        }, {
+          col_name: 'detailed_page'
+          dom_query: '.newaps a'
+          required_attribute : 'href'
+          options :
+            columns : [{
+              col_name : 'product_description'
+              dom_query : '#productDescription'
+            }]
+      }]
+      data :
+        source : 'amazon'
     )
 
     post_options = {

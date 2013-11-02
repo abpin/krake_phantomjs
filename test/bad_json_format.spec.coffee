@@ -1,22 +1,13 @@
 http = require 'http'
 KSON = require 'kson'
-jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
-  it "should respond with success and an object ", (done)->
+describe "testing badly formed JSON", ()->
+  it "should respond with error message", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
-    post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
-    )
+    post_data = '{what the fuck'
 
     post_options = {
       host: post_domain,
@@ -32,9 +23,9 @@ describe "test Yalwa", ()->
     post_req = http.request post_options, (res)=>
       res.setEncoding('utf8');
       res.on 'data', (raw_data)=>
-        response_obj = KSON.parse raw_data
-        expect(response_obj.status).toEqual "success"
-        expect(typeof response_obj.message).toBe "object"
+        response_obj = JSON.parse raw_data
+        expect(response_obj.status).toEqual "error"
+        expect(response_obj.message).toEqual "cannot render Krake query object, SyntaxError: KSON.parse"
         done() 
 
 

@@ -2,20 +2,32 @@ http = require 'http'
 KSON = require 'kson'
 jasmine.getEnv().defaultTimeoutInterval = 20000;
 
-describe "test Yalwa", ()->
+describe "testing well formed Krake definition", ()->
   it "should respond with success and an object ", (done)->
     post_domain = 'localhost'
     post_port = 9701
     post_path = '/extract';
 
     post_data = KSON.stringify(
-      {
-        origin_url : "http://www.yellowpages.co.id/browse",
-        columns : [{
-          col_name : "cat lvl1",
-          dom_query : "a:has(span):contains('More')"
-        }]
-      }
+      "exclude_jquery" : true,
+      "origin_url": "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=29%20Club%20Street+Singapore",
+      "columns": [
+          {
+              "col_name": "Latitude",
+              "xpath": "//GeocodeResponse/result/geometry/location/lat",
+              required_attribute : 'textContent'
+          },
+          {
+              "col_name": "Longitude",
+              "xpath": "//GeocodeResponse/result/geometry/location/lng",
+              required_attribute : 'textContent'              
+          },
+          {
+              "col_name": "Postal Code",
+              "xpath": "//GeocodeResponse/result/address_component[5]/long_name",
+              required_attribute : 'textContent'              
+          }
+      ]
     )
 
     post_options = {

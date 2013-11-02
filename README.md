@@ -3,7 +3,7 @@ by Team at [Krake.IO] (https://krake.io)
 
 ## Overview
 A standalone phantomjs server that takes in a Krake definitions via HTTP post/RESTFUL API and returns an array of scraped results
-from a single corresponding Web Page
+from a single corresponding Web Page.
 
 ## Requirements
 - PhantomJS 1.8.1
@@ -40,5 +40,11 @@ cd ./shell && ./start_server.sh
 ```console
 coffee simple_client.coffee
 ```
+
+## To do unit testing
+```console
+
+```
+
 ## Reference to full API
 see [Krake Definition API] (https://krake.io/docs/define-krake)
