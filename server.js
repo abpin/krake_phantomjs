@@ -19,27 +19,27 @@ phantom.onError = function(msg, trace) {
 };
 
 // @Description : extracts the columns from the page
-// @param : krake_query_obj:Object
+// @param : krakeQueryObject:Object
 // @param : callback:function
 //    status:string - success || error
 //    results:Object
-var processPage = function(krake_query_obj, callback) {
+var processPage = function(krakeQueryObject, callback) {
   
-  if(!krake_query_obj.origin_url ) {
-    console.log('[PHANTOM_SERVER] origin_url not defined for \r\n\t\tURL:' + krake_query_obj.origin_url);
+  if(!krakeQueryObject.origin_url ) {
+    console.log('[PHANTOM_SERVER] origin_url not defined for \r\n\t\tURL:' + krakeQueryObject.origin_url);
     callback && callback('error', 'origin_url not defined');
     return;
     
-  } else if(!krake_query_obj.columns) {
-    console.log('[PHANTOM_SERVER] columns not defined \r\n\t\tURL:' + krake_query_obj.origin_url);
+  } else if(!krakeQueryObject.columns) {
+    console.log('[PHANTOM_SERVER] columns not defined \r\n\t\tURL:' + krakeQueryObject.origin_url);
     callback && callback('error', 'columns not defined');
     return;    
     
   } else {
-    console.log('[PHANTOM_SERVER] Processing page \r\n\t\tURL:' + krake_query_obj.origin_url);
+    console.log('[PHANTOM_SERVER] Processing page \r\n\t\tURL:' + krakeQueryObject.origin_url);
     var page = require('webpage').create();
     
-    console.log('[PHANTOM_SERVER] Adding Middle Wares \r\n\t\tURL:' + krake_query_obj.origin_url);
+    console.log('[PHANTOM_SERVER] Adding Middle Wares \r\n\t\tURL:' + krakeQueryObject.origin_url);
     kp = new KrakeProcessor();
     kp.use(require('./middlewares/set_headers'));
     kp.use(require('./middlewares/set_cookies'));
@@ -49,7 +49,7 @@ var processPage = function(krake_query_obj, callback) {
     kp.use(require('./middlewares/waitup'));
     kp.use(require('./middlewares/extract_dom_elements'));       
     
-    kp.process(page, krake_query_obj, function(status, results) {
+    kp.process(page, krakeQueryObject, function(status, results) {
       callback && callback(status, results);
     });
     
@@ -73,8 +73,8 @@ var service = server.listen(9701, function(req, res) {
     
     try {
       req.post = decodeURIComponent(req.post);
-      var krake_query_obj = KSON.parse(req.post);
-      processPage(krake_query_obj, function(status, results) {
+      var krakeQueryObject = KSON.parse(req.post);
+      processPage(krakeQueryObject, function(status, results) {
         response.status = status;
         response.message = results;
         res.write(JSON.stringify(response));

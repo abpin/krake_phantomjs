@@ -1,4 +1,4 @@
-var openPage = function(page, krake_query_obj, next) {
+var openPage = function(page, krakeQueryObject, next) {
   console.log("[PHANTOM_SERVER] Opening page");
   
   // @Description : the process that handles the finished loading of pages
@@ -22,23 +22,37 @@ var openPage = function(page, krake_query_obj, next) {
     })
   };
   
-  // @Description : opens the page
-  page.open(krake_query_obj.origin_url, function(status) {
-    
+  // the callback that is triggered after the page is open
+  callback = function(status) {
+
     // When opening page failed
   	if(status !== 'success') {
   	  console.log('[PHANTOM_SERVER] failed to open page.');
-  	  krake_query_obj.jobStatus = 'error'
-      krake_query_obj.jobResults = 'page opening failed'  	  
+  	  krakeQueryObject.jobStatus = 'error'
+      krakeQueryObject.jobResults = 'page opening failed'  	  
       page.close();
-      
-  	} else {	
-  	  //setupJsonObject();
-  	  //includeJquery();
   	} 
-    next();  	
   	
-  });
+    next();  	
+
+  }  
+  
+  // POST method
+  if(krakeQueryObject.method && 
+    krakeQueryObject.method == 'post' && 
+    typeof krakeQueryObject.post_data == 'object' ) {
+      
+      queryString = Object.keys(krakeQueryObject.post_data).map(function(key){ 
+        return key + "=" + krakeQueryObject.post_data[key]
+      }).join("&");
+      
+      page.open(krakeQueryObject.origin_url, 'post', queryString, callback);        
+  
+  // GET method
+  } else {
+    page.open(krakeQueryObject.origin_url, callback);
+    
+  }
   
 }
 
