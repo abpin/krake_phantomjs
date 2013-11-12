@@ -1,5 +1,3 @@
-var KSON = require('../node_modules/kson/lib/kson');
-
 // @extracts the DOM elements from the page  
 var extractDomElements = function(page, krakeQueryObject, next) {
   
@@ -184,9 +182,9 @@ var extractDomElements = function(page, krakeQueryObject, next) {
   }, krakeQueryObject); // eo evaluation
   console.log('[PHANTOM_SERVER] Extraction finished.');
   console.log('[PHANTOM_SERVER] Query');    
-  console.log(KSON.stringify(krakeQueryObject) + '\r\n\r\n');
+  console.log(JSON.stringify(krakeQueryObject) + '\r\n\r\n');
   console.log('[PHANTOM_SERVER] result');        
-  console.log(KSON.stringify(results) + '\r\n\r\n');
+  console.log(JSON.stringify(results) + '\r\n\r\n');
   krakeQueryObject.jobResults = results
   
   //callback('success', results);
