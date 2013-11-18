@@ -10,6 +10,9 @@ var setHeaders = function(page, krakeQueryObject, next) {
   if(domain_info.host.match(/google.com/)) {
     page.settings['userAgent'] = 
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1';    
+  } else if (domain_info.host.match(/smecorp.gov.my/)) {
+    page.settings['userAgent'] = 
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1';        
   }
   next();
 }
