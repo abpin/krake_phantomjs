@@ -26,14 +26,9 @@ from a single corresponding Web Page.
 - shell/
     - the shell script for restarting the phantomjs server background process
 
-## To start service
+## To start server
 ```console
 phantomjs server.js
-```
-
-## To run service in background
-```console
-cd ./shell && ./start_server.sh
 ```
 
 ## To scrape a single page on yahoo
