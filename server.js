@@ -47,6 +47,7 @@ var processPage = function(krakeQueryObject, callback) {
     kp.use(require('./middlewares/setup_json'));
     kp.use(require('./middlewares/include_jquery'));
     kp.use(require('./middlewares/waitup'));
+    kp.use(require('./middlewares/click_elements'));    
     kp.use(require('./middlewares/extract_dom_elements'));       
     
     kp.process(page, krakeQueryObject, function(status, results) {
