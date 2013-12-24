@@ -1,0 +1,15 @@
+<script>
+  next_page = function() {
+    console.log("Changing location of the page");
+    jQuery('#post_form').attr("action", "/success");
+    jQuery('#post_form').submit();
+  }
+  jQuery(document).ready(function() {
+    jQuery("#next_page").click(next_page);
+  });
+</script>
+
+<form id='post_form'>
+  <div id='col1'>Value 1</div>
+  <a id='next_page'  href='#'>function button</a>
+</form>

@@ -1,29 +1,9 @@
 express = require 'express'
-http = require 'http'
 KSON = require 'kson'
 request = require 'request'
+testClient = require './fixtures/test_client'
 
 jasmine.getEnv().defaultTimeoutInterval = 20000
-
-toTestServer = (postData, callback)->
-  post_options =
-    host: 'localhost'
-    port: 9701
-    path: '/extract'
-    method: 'POST'
-    headers:
-      'Content-Type': 'application/json'
-      'Content-Length': postData.length
-      
-  post_req = http.request post_options, (res)=>
-    res.setEncoding('utf8');
-    res.on 'data', (rawData)=>
-      res.setEncoding 'utf8'
-      callback && callback JSON.parse rawData
-      
-  # write parameters to post body
-  post_req.write postData
-  post_req.end()
 
 describe "testing to make sure phantomjs server is running", ()->
   it "should respond with I am Krake", (done)->
@@ -33,7 +13,7 @@ describe "testing to make sure phantomjs server is running", ()->
 
 describe "testing badly formed JSON", ()->
   it "should respond with error message", (done)->
-    toTestServer '{what the fuck', (response_obj)-> 
+    testClient '{what the fuck', (response_obj)-> 
       expect(response_obj.status).toEqual "error"
       expect(response_obj.message).toEqual "cannot render Krake query object, SyntaxError: KSON.parse"
       done()
@@ -50,7 +30,7 @@ describe "testing bad page on lelong.com.my", ()->
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       expect(typeof response_obj.message.result_rows).toBe "object"
@@ -101,7 +81,7 @@ describe "phantom server cookie testing", ()->
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       expect(response_obj.message.result_rows[0].body).toEqual "cookie header received"
@@ -137,7 +117,7 @@ describe "testing Krake definition with jQuery excluded", ()->
         source : 'amazon'
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       done() 
@@ -163,14 +143,14 @@ describe "test extraction of Geolocation from Google", ()->
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       expect(typeof response_obj.message.result_rows).toBe "object"
       expect(typeof response_obj.message.result_rows[0]).toBe "object"
       expect(response_obj.message.result_rows[0].Latitude).toEqual "1.2824106"
       expect(response_obj.message.result_rows[0].Longitude).toEqual "103.8465200"
-      expect(response_obj.message.result_rows[0]['Postal Code']).toEqual "069414"
+      expect(response_obj.message.result_rows[0]['Postal Code']).toEqual "Singapore"
       done() 
 
 describe "test extraction of Product Listing Info from MDScollections using Xpath", ()->
@@ -187,7 +167,7 @@ describe "test extraction of Product Listing Info from MDScollections using Xpat
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       expect(typeof response_obj.message.result_rows).toBe "object"
@@ -197,42 +177,6 @@ describe "test extraction of Product Listing Info from MDScollections using Xpat
       expect(response_obj.message.result_rows.length).toBeGreaterThan 5
       done()
 
-describe "Next page using jQuery", ()->
-  it "should respond with success and a string for the next page attribute ", (done)->
-    post_data = KSON.stringify(
-      "origin_url": "http://tw.mall.yahoo.com/merchant_homepage?catid=0&searchby=sname&sort_by=product_count&order_by=0"
-      "columns": [{
-        "col_name": "shop rating"
-        "xpath": "/html[1]/body[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr/td[1]/p[1]/span[1]/a[1]"
-      }]
-      "next_page":
-          "dom_query": ".pages strong+a"
-    )
-    
-    toTestServer post_data, (response_obj)-> 
-      expect(response_obj.status).toEqual "success"
-      expect(typeof response_obj.message).toEqual "object"
-      expect(typeof response_obj.message.next_page).toEqual "string"
-      done() 
-    
-describe "Next page using Xpath", ()->
-  it "should respond with success and a string for the next page attribute ", (done)->
-    post_data = KSON.stringify(
-        "origin_url": "http://tw.mall.yahoo.com/merchant_homepage?catid=0&searchby=sname&sort_by=product_count&order_by=0"
-        "columns": [{
-                "col_name": "shop rating",
-                "xpath": "/html[1]/body[1]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr/td[1]/p[1]/span[1]/a[1]"
-        }]
-        "next_page":
-            "xpath": '//*[@id="ypsaupg"]/div[2]/a[2]'
-    )
-
-    toTestServer post_data, (response_obj)-> 
-      expect(response_obj.status).toEqual "success"
-      expect(typeof response_obj.message).toEqual "object"
-      expect(typeof response_obj.message.next_page).toEqual "string"
-      done() 
-    
 describe "testing Krake definition with no origin url", ()->
   it "should respond with an error ", (done)->
     post_data = KSON.stringify(
@@ -241,7 +185,7 @@ describe "testing Krake definition with no origin url", ()->
         source : 'amazon'
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "error"
       expect(response_obj.message).toEqual "columns not defined"
       done() 
@@ -273,7 +217,7 @@ describe "testing Krake definition with no origin url", ()->
         source : 'amazon'
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "error"
       expect(response_obj.message).toEqual "origin_url not defined"
       done() 
@@ -306,7 +250,7 @@ describe "testing against non-existant url", ()->
         source : 'amazon'
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "error"
       expect(response_obj.message).toBe "page opening failed"
       done() 
@@ -342,7 +286,7 @@ describe "testing well formed Krake definition", ()->
       }]
     )
     
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       done() 
@@ -350,12 +294,14 @@ describe "testing well formed Krake definition", ()->
 describe "Facebook fanpage using Cookies", ()->
   it "should respond with success and an object ", (done)->
     post_data = KSON.stringify(
+      "render" : true
+      "wait" : 3000
       "origin_url": "http://www.tripadvisor.com.sg/Attractions-g294265-Activities-Singapore.html"
       "columns": [{
         "col_name": "place name"
         "xpath": "/html[1]/body[1]/div/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[1]/div/div[2]/a[1]"
       },{
-        "xpath": "/html[1]/body[1]/div/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[1]/div/div[2]/a[1]",
+        "xpath": "/html[1]/body[1]/div/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[1]/div/div[2]/a[1]"
         "col_name": "place name_link"
         "required_attribute": "href"
         "options": 
@@ -375,11 +321,11 @@ describe "Facebook fanpage using Cookies", ()->
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       expect(typeof response_obj.message.result_rows[0]).toBe "object"
-      expect(response_obj.message.result_rows[0]['place name']).toBe "Food Playground"
+      response_obj.message.result_rows[0] && expect(response_obj.message.result_rows[0]['place name']).toBe "Food Playground"
       done() 
     
 describe "Test to ensure extreme long JSON query gets handled properly", ()->
@@ -464,7 +410,7 @@ describe "Test to ensure extreme long JSON query gets handled properly", ()->
             "dom_query": ".pages strong+a"
 
     post_data = encodeURIComponent(KSON.stringify(post_data))
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       done() 
     
@@ -486,14 +432,14 @@ describe "Test to ensure UTF8 declarations gets handled properly", ()->
       }]
 
     post_data = encodeURIComponent(KSON.stringify(post_data));
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       done() 
     
 describe "Test to ensure UTF8 encoding gets handled properly", ()->
   it "should respond with success and an object ", (done)->
     post_data = encodeURIComponent(KSON.stringify('全部商品'))
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "error"
       done() 
     
@@ -507,7 +453,7 @@ describe "to ensure special Yalwa corner case gets handled properly", ()->
       }]
     )
 
-    toTestServer post_data, (response_obj)-> 
+    testClient post_data, (response_obj)-> 
       expect(response_obj.status).toEqual "success"
       expect(typeof response_obj.message).toBe "object"
       done() 

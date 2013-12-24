@@ -1,4 +1,4 @@
-KrakeProcessor = require '../../helpers/krake_processor'
+KrakeProcessor = require '../../controllers/krake_processor'
 
 describe "ensures krake processor does the jobs in proper order", ()->
   it "should return a result array in the right order", (done)->

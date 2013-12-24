@@ -1,0 +1,11 @@
+<script>
+next_page = function() {
+  console.log("Changing location of the page");
+  window.location = '/success'
+}
+jQuery(document).ready(function() {
+  jQuery("#next_page").click(next_page);
+});
+</script>
+<div id='col1'>Value 1</div>
+<a id='next_page' href='#'>function button</a>

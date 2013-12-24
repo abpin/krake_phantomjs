@@ -11,6 +11,7 @@
       "request" : ""
     , "kson" : "https://github.com/KrakeIO/kson/tarball/master"
     , "express": "2.5.7"
+    , "ejs": "0.6.1"    
   }
   , "scripts": {
     "test": "jasmine-node --coffee test/"

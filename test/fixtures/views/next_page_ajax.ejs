@@ -1,0 +1,11 @@
+<script>
+jQuery(document).ready(function() {
+  jQuery("#next_page").click(function() {
+    jQuery.ajax('/success').done(function() {
+      console.log('/success loaded')
+    })
+  });
+});
+</script>
+<div id='col1'>Value 1</div>
+<a id='next_page'  href='#'>function button</a>
