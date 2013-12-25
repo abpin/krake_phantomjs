@@ -1,0 +1,23 @@
+<script>
+jQuery(document).ready(function() {
+  jQuery("#next_page").click(function() {
+
+    jQuery.ajax('/json-obj').done(function() {
+      console.log(arguments);
+      console.log('/json-obj loaded')
+    });
+
+    jQuery.ajax('/success_delayed').done(function() {
+      console.log('/success_delayed loaded')
+    });
+
+    jQuery.ajax('/img/logo.png').done(function() {
+      console.log(arguments);
+      console.log('/img-obj loaded')
+    });
+
+  });
+});
+</script>
+<div id='col1'>Value 1</div>
+<a id='next_page'  href='#'>function button</a>

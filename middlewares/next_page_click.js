@@ -17,27 +17,59 @@ var nextPageClick = function(page, krakeQueryObject, next) {
   if(krakeQueryObject.next_page && krakeQueryObject.next_page.click) {
 
     console.log('[PHANTOM_SERVER] extracting Next Page via clicking on the anchor element');
+    page.injectJs("./3p/navigate_away.js") && console.log('[PHANTOM_SERVER] included navigate_away.js');
+
     krakeQueryObject.jobResults = krakeQueryObject.jobResults || {};
 
-    var timed_out = false
+    var timed_out = false;
+    var ajax_route = false;
+    var nav_route = false;
+
     var time_cop = setTimeout(function() {
       console.log('[PHANTOM_SERVER] Click Next Page Timed out');
       timed_out = true;
       next();
-    }, 500);
+    }, 5000);
 
-    page.onResourceRequested = function(requestData, networkRequest) {
-      if(!timed_out) {
-        // console.log('Resource Request (' + requestData.id + '): ' + JSON.stringify(requestData));
-        console.log('[PHANTOM_SERVER] Click Next Page URL : ' + requestData.url);
-        networkRequest.abort();
-        krakeQueryObject.jobResults.next_page = requestData.url
-        page.onResourceRequested = false;
-        clearTimeout(time_cop)
-        delete time_cop
-        next();        
+    var taskComplete = function() {
+
+      page.onResourceRequested = false;
+      page.onUrlChanged = false;
+      timed_out = true;        
+      
+      clearTimeout(time_cop)
+      delete time_cop
+      next();      
+    }
+
+    page.onCallback = function(data) {
+      if(data['event'] == 'xml_http_req') {
+        console.log("Catching new ajax away");
+        ajax_route = true;
+
+      } else if(data['event'] == 'page_load') {
+        console.log("Catching next navigated away");
+        nav_route = true;
+
       }
+    };
 
+    page.onResourceReceived = function(responseData) {
+      console.log('[PHANTOM_SERVER] resource request : ' + responseData.url);
+      if(!timed_out && ajax_route && responseData.contentType.indexOf("text/html") > -1) {
+        console.log('[PHANTOM_SERVER] Next Page Resource : ' + responseData.url);
+        krakeQueryObject.jobResults.next_page = responseData.url;
+        taskComplete();
+      }
+    };    
+
+    page.onUrlChanged = function(targetUrl) {
+      console.log('[PHANTOM_SERVER] new url loaded : ' + targetUrl);
+      if(!timed_out && nav_route) {
+        console.log('[PHANTOM_SERVER] Next Page URL : ' + targetUrl);
+        krakeQueryObject.jobResults.next_page = targetUrl;
+        taskComplete();
+      }
     };
 
     click_logs = page.evaluate(function(krakeQueryObject) {
@@ -70,7 +102,7 @@ var nextPageClick = function(page, krakeQueryObject, next) {
       return logs;
     }, krakeQueryObject);
 
-    console.log("[PHANTOM_SERVER] next page click logs: " + click_logs.join(","))
+    console.log("[PHANTOM_SERVER] next page click logs: " + click_logs.join(",\n\r\t"))
 
     
   // When next_page operator was not specified

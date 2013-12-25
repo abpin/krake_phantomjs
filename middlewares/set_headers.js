@@ -7,16 +7,10 @@ var parseUri = require('../3p/parse_uri');
 var setHeaders = function(page, krakeQueryObject, next) {
 
   domain_info = parseUri(krakeQueryObject.origin_url);
-  if(domain_info.host.match(/google.com/) || domain_info.host.match(/maps.googleapis.com/) ) {
-    page.settings['userAgent'] = 
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1';    
-  } else if (domain_info.host.match(/smecorp.gov.my/)) {
+  if(!domain_info.host.match(/facebook.com/)) {
     page.settings['userAgent'] = 
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1';        
-  } else if (domain_info.host.match(/hockeyfights.com/)) {
-    page.settings['userAgent'] = 
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1';        
-  }  
+  }
   next();
 }
 

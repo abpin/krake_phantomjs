@@ -121,10 +121,10 @@ var domElements = function(page, krakeQueryObject, next) {
       
   }, krakeQueryObject); // eo evaluation
   console.log('[PHANTOM_SERVER] Extraction finished.');
-  console.log('[PHANTOM_SERVER] Query');    
-  console.log(JSON.stringify(krakeQueryObject) + '\r\n\r\n');
-  console.log('[PHANTOM_SERVER] result');        
-  console.log(JSON.stringify(results) + '\r\n\r\n');
+  console.log('[PHANTOM_SERVER] Processing Query');    
+  // console.log(JSON.stringify(krakeQueryObject) + '\r\n\r\n');
+  console.log('[PHANTOM_SERVER] Retrieved Results');        
+  // console.log(JSON.stringify(results) + '\r\n\r\n');
   krakeQueryObject.jobResults = results
   
   next();

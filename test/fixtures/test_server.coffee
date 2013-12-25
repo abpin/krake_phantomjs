@@ -33,6 +33,17 @@ app.get '/next_page_empty', (req, res)->
 app.get '/next_page_ajax', (req, res)->
   res.render 'next_page_ajax'
 
+app.get '/next_page_ajax_double', (req, res)->
+  res.render 'next_page_ajax_double'
+
+app.get '/success_delayed', (req, res)->
+  setTimeout ()=>
+    res.render 'success'
+  , 500
+
+app.get '/json-obj', (req, res)->
+  res.send { payload: "some text"}
+
 app.get '/timeout', (req, res)->
 
 exports = module.exports = app
